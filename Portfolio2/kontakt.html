@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Pacifico"
+    />
+    <script
+      src="https://kit.fontawesome.com/64df96d0cc.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Kontakt</title>
+    <link rel="icon" type="image/x-icon" href="/bilder/favicon.ico" />
+  </head>
+  <body>
+    <div class="container">
+      <!--Kontakt-->
+      <nav>
+        <input type="checkbox" id="check" />
+        <label for="check">
+          <i class="fa-solid fa-burger" id="brgbtn"></i>
+          <i class="fa-solid fa-xmark" id="cancel"></i>
+        </label>
+        <h2 class="logo">ANNA</h2>
+        <ul>
+          <li><a href="index.html">Hem</a></li>
+          <li><a href="om-mig.html">Om mig</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="#">Kontakt</a></li>
+        </ul>
+      </nav>
+      <div class="grid-kontakt kontakt">
+        <!--Formulär för att kontakta mig leder just nu igenstans-->
+        <section class="grid-left">
+          <form id="form" name="form">
+            <fieldset>
+              <legend>Fyll i formulär för att kontakta mig</legend>
+              <div class="form">
+                <label for="name">Förnamn:</label><br />
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  pattern="[A-Öa-ö\s]+"
+                  placeholder="Erik..."
+                />
+                <!-- Pattern ger ett vilkor hur man fyller i formuläret Bokstäver mellanslag och minst en karaktär-->
+              </div>
+              <div class="form">
+                <label for="surname">Efternamn:</label><br />
+                <input
+                  type="text"
+                  id="surname"
+                  name="surname"
+                  pattern="[A-Öa-ö\s]+"
+                  placeholder="Eriksson...."
+                />
+              </div>
+              <div class="form">
+                <label for="email">Email:</label> <br />
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+                  placeholder="eriksson@example.com"
+                />
+                <!--Pattern för att webbadress är korrekt inskriven-->
+              </div>
+              <!--Här nedan är en ruta för att skriva text-->
+              <div class="textarea1">
+                <br />
+                <textarea
+                  name="message"
+                  id="message"
+                  placeholder="Skriv här"
+                  cols="40"
+                  rows="5"
+                ></textarea>
+              </div>
+              <div class="submit">
+                <label for="send"></label>
+                <input type="submit" name="send" id="send" value="SÄND" />
+              </div>
+            </fieldset>
+          </form>
+        </section>
+        <section class="grid-right">
+          <div class="links">
+            <ol>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/anna-alehed-4a6bbb28a/"
+                  target="_blank"
+                  >LinkedIn</a
+                >
+              </li>
+              <li>
+                <a href="https://github.com/Annamedie" target="_blank"
+                  >Github</a
+                >
+              </li>
+            </ol>
+          </div>
+          <div class="mail">
+            <p>
+              <a href="mailto:annaalehed@hotmail.com">annaalehed@hotmail.com</a>
+              <!--Mailto en länk som öppnar en mejl för att snabbt kunna mejla mig-->
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+    <footer>
+      <h2>Copyright Anna Alehed 2023 ©</h2>
+      <div class="foot-links">
+        <a
+          href="https://www.linkedin.com/in/anna-alehed-4a6bbb28a/"
+          target="_blank"
+          ><img src="/bilder/linkedin.png" alt="linkedin"
+        /></a>
+        <a href="https://github.com/Annamedie" target="_blank"
+          ><img src="/bilder/github.png" alt="Github"
+        /></a>
+      </div>
+    </footer>
+  </body>
+</html>

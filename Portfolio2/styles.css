@@ -1,0 +1,744 @@
+/*Gemensam CSS Skriven i mobilefirst längts ned finnes media queries för större storlekar på skärm*/
+/*NYHETER!! Nytt för den här omgången är en ny navbar med "burger meny", index sidans bild täcker nu hela sidan i alla storlekar, Om mig ny rubrik utseende och justering av font-size, Portfolio ny hover funktion för korten, mkt nya gridar som följd lite justeringar på tidlinjen mm och kontakta mig har fått ny funktion för felhantering i formulär och ny med mailto! Med mera lite utseende förändringar*/
+* {
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #faf1e4;
+  position: relative;
+}
+.wrapper {
+  /*Unik för startsidan pga bakgrundsbilden*/
+  position: relative;
+  /* Täcker allt innehåll förutom footern som ligger utanför pga position absolute den ska ligga alltid ligga längst ned i body-taggen*/
+  width: 100%;
+  height: 100vh;
+  padding-bottom: 9rem; /* Sätter en gräns mot footern så den inte lägger sig över innehåll*/
+  margin: 0 auto;
+  background-color: #faf1e4;
+  box-sizing: border-box;
+  background-image: url("bilder/utsikt2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.container {
+  /*Ny container täcker resten av sidornas innehåll*/
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 9rem; /* Sätter en gräns mot footern så den inte lägger sig över innehåll*/
+  background-color: #faf1e4;
+  box-sizing: border-box;
+}
+/*Navigering*/
+nav {
+  height: 80px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(36, 40, 36, 1);
+  background: linear-gradient(
+    315deg,
+    rgba(36, 40, 36, 1),
+    rgba(8, 130, 39, 1)
+  ); /*Skapar färg gradient*/
+}
+.logo {
+  font-size: 2em;
+  font-family: Pacifico;
+  color: white;
+  text-shadow: 3px 3px 0px black;
+  position: absolute;
+  top: -14px;
+  left: 8%;
+}
+ul {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: rgba(18, 154, 14, 1);
+  background: linear-gradient(
+    315deg,
+    rgba(18, 154, 14, 1),
+    rgba(92, 205, 184, 1)
+  );
+  top: 65px;
+  left: -100%;
+  text-align: center;
+  transition: all 0.5s;
+  z-index: 10;
+}
+nav ul {
+  float: right;
+  margin-right: 5%;
+}
+nav ul li {
+  display: block;
+  margin: 2em 0;
+  line-height: 30px;
+}
+nav ul li a {
+  position: relative;
+  color: white;
+  padding: 5px 0;
+  text-transform: uppercase;
+  font-size: 1.7em;
+}
+nav ul li a::before {
+  /*En linje under länkarna som rör sig när man hovrar över*/
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 400ms ease-in-out;
+}
+nav ul li a:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+/*Knapparna och hur de syns eller inte*/
+label #brgbtn {
+  color: white;
+  font-size: 1.8em;
+  float: right;
+  line-height: 2.6em;
+  margin-right: 5%;
+  cursor: pointer;
+  display: block;
+}
+label #cancel {
+  color: white;
+  font-size: 1.8em;
+  float: right;
+  line-height: 2.6em;
+  margin-right: 5%;
+  cursor: pointer;
+  display: none;
+}
+/*Styr hur de olika knapparna ska visas, styr av checkbox som inte syns*/
+#check {
+  display: none;
+}
+#check:checked ~ ul {
+  left: 0;
+}
+#check:checked ~ label #brgbtn {
+  display: none;
+}
+#check:checked ~ label #cancel {
+  display: block;
+}
+
+header .rubrik {
+  position: absolute; /*Placering av rubrik*/
+  right: 5%;
+  top: 20%;
+  opacity: 0;
+  animation: fadein 1s ease-in forwards; /*Animation som gör att rubriken fadar in*/
+}
+@keyframes fadein {
+  from {
+    opacity: 0; /* Går från genomskilning till synlig*/
+  }
+  to {
+    opacity: 1;
+  }
+}
+.rubrik h1 {
+  text-align: center;
+  font-size: 3em;
+  font-family: Arial, Helvetica, serif;
+  color: white;
+  text-shadow: black 1px 0 10px;
+}
+
+.rubrik h2 {
+  text-align: center;
+  font-size: 2em;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: white;
+  text-shadow: black 1px 0 10px;
+}
+/* Här börjar om mig sidan*/
+.grid-about-me {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: repeat(
+    4,
+    1fr
+  ); /* Sätter en grid med 4 fraktioner och de är minst 100px på höjden*/
+  grid-auto-rows: minmax(100px, auto);
+}
+.bild {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /*Bild täcker sin div*/
+}
+article {
+  grid-column: 1/5; /*Placering i griden vid mindre px vidd*/
+  grid-row: 1/2;
+}
+.bild-con {
+  padding: 10px;
+  margin: 8px;
+  box-shadow: 6px 10px 4px 2px rgba(0, 0, 0, 0.75);
+}
+.pic-up {
+  /*Bild som glider uppåt*/
+  grid-column: 1/3;
+  grid-row: 2/3;
+  transform: translateY();
+  animation: slideUp 1s ease forwards;
+  animation-delay: 0.3s;
+}
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100px); /*Börjar på 100 i y-led*/
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.pic-down {
+  /*Bild som glider neråt*/
+  grid-column: 3/5;
+  grid-row: 2/3;
+  transform: translateY();
+  animation: slideDown 1s ease forwards;
+  animation-delay: 0.3s;
+}
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px); /*Börjar på -100 i y-led*/
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+article h2 {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 3rem;
+  color: #0f4d16;
+  text-shadow: 3px 3px 0px black;
+}
+article p {
+  padding: 20px;
+  line-height: 1.5;
+  font-size: 1.5rem;
+}
+
+/* HÄR BÖRJAR PORTFOLIO CSS*/
+.grid-card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /*Grid i två fraktioner*/
+  grid-auto-rows: minmax(150px, auto); /*Minsta grid höjd*/
+  gap: 10px;
+}
+.card-con {
+  grid-column: 1/3;
+}
+.h-portfolio {
+  grid-column: 1/3; /*Hur mycket plats rubriken upptar*/
+  display: flex; /*Flex element för centrera i flera led rubriken till portfolion */
+  justify-content: center;
+  align-items: center;
+}
+.h-portfolio h2 {
+  font-family: Arial, Helvetica, sans-serif; /*Flex elementet*/
+  font-size: 4em;
+  color: #0f4d16;
+  text-shadow: 3px 3px 0px black;
+}
+
+.card {
+  position: relative;
+  overflow: hidden; /*Överflöd göms*/
+  border: 4px solid #0f4d16;
+  border-radius: 25%;
+  padding: 10px;
+  margin: 50px 5px;
+  text-align: center;
+}
+
+.card img {
+  margin: 0 auto; /*Centrerar bilden*/
+  max-width: 100%; /* Gör att bilden inte blir större än kortets bredd */
+  display: block;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.card p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  padding: 10px;
+  margin-bottom: 50px; /*Trycker ned knappen så den inte krockar med text*/
+}
+
+.card button {
+  position: absolute; /* För att säkerställa att knappen är på botten av kortet*/
+  bottom: 5%; /*Positionen i kortet*/
+  left: 34%;
+  background-color: #2f8826;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  color: white;
+  border: none;
+  padding: 15px;
+  cursor: pointer; /*Mus blir en pointer när man hoovrar över*/
+  transition: background-color 0.3s; /*Mjuka övergångrar i hoover effekten*/
+  transition: box-shadow 0.3s;
+}
+
+.card button:hover {
+  background-color: #0f4d16;
+  box-shadow: 10px 10px 7px 2px rgba(0, 0, 0, 0.75);
+}
+.timeline-grid {
+  /*Container runt tidslinjen*/
+  grid-column: 1/3;
+  box-sizing: border-box;
+  border-top: 4px solid #0f4d16;
+}
+.timeline {
+  position: relative;
+  max-width: 80vw;
+  margin: 50px auto;
+}
+.con-timeline {
+  /*container för boxarna i timelinen och animation som gör att de rör sig lite neråt*/
+  position: relative;
+  animation: movedown 1s linear forwards;
+  opacity: 0; /*Så de inte syns i början av animation*/
+  width: 90%;
+  padding-left: 80px;
+  padding-right: 25px;
+}
+@keyframes movedown {
+  0% {
+    opacity: 1;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.con-timeline:nth-child(2) {
+  /*fördröjningar på andra och tredje barnet för conteinern så det blir mer flow när man rör sig över tidslinjen*/
+  animation-delay: 2s;
+}
+.con-timeline:nth-child(3) {
+  animation-delay: 3s;
+}
+
+.textbox-timeline {
+  /*Lådan för text*/
+  padding: 20px 30px;
+  margin: 10px;
+  background: white;
+  border: 1px solid #0f4d16;
+  position: relative;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.left-con-time {
+  /*Position runt tidslinjen*/
+  left: -5%;
+}
+.right-con-time {
+  left: -5%;
+}
+.timeline::after {
+  /*Position för själva tidslinjen som är ett tunt grönt streck rör sig nedåt*/
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 100%;
+  background-color: #0f4d16;
+  top: 0; /*Position i planet*/
+  left: 31px;
+  margin-left: -3px;
+  z-index: 1;
+  animation: moveline 4s linear forwards; /*Animation för hur den ska röra sig nedåt*/
+}
+@keyframes moveline {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100%;
+  }
+}
+.textbox-timeline h2 {
+  font-weight: 600;
+}
+.textbox-timeline small {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+/*Position och bildandet av pilar till boxarna*/
+.left-con-arrow {
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 28px;
+  z-index: 1;
+  border-top: 15px solid transparent; /*Tillverkar pilarna*/
+  border-bottom: 15px solid transparent;
+  border-right: 15px solid #0f4d16;
+  border-left: 0;
+  left: -15px; /*Position*/
+}
+.right-con-arrow {
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 28px;
+  z-index: 1;
+  border-top: 15px solid transparent; /*Tillverkar pilarna*/
+  border-bottom: 15px solid transparent;
+  border-right: 15px solid #0f4d16;
+  left: -15px; /*Position*/
+  border-left: 0;
+}
+/* Här börjar kontakt*/
+.grid-kontakt {
+  display: grid; /*Grid i två kolumner*/
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.grid-left {
+  /*Rutorna för formulär och länkar*/
+  grid-column: 1/3;
+}
+.grid-right {
+  grid-column: 1/3;
+}
+.kontakt {
+  background-color: #faf1e4;
+  margin: 0;
+  padding: 18px;
+}
+fieldset {
+  margin: 0 auto; /* Sätter position för kontakt formuläret*/
+  max-width: 70%; /* Hur mycket den tar upp av lådan*/
+  padding-left: 10px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+legend {
+  font-size: 1.3em;
+}
+.form {
+  font-size: 1.3em;
+}
+input {
+  font-size: 1em; /*Specifikationer för input fälten och tillhörade text*/
+  width: 95%;
+  padding: 12px 20px;
+  margin: 8px 0px;
+  display: inline-block;
+  border: 5px solid #0f4d16;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+/*Gör så att formulär rutorna rör sig och byter färg om man skrev in fel*/
+input:focus {
+  outline: none;
+}
+input:invalid {
+  border-color: darkred;
+  animation: shake 0.4s;
+}
+input:valid {
+  border-color: #0f4d16;
+}
+@keyframes shake {
+  25% {
+    transform: translateX(-5px); /*Skapar att det skakar*/
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(-5px);
+  }
+}
+textarea {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1em;
+}
+#send {
+  /*Knappen*/
+  background-color: #346144;
+  color: white;
+  transition: box-shadow 0.6s;
+}
+#send:hover {
+  background-color: #0f4d16;
+  box-shadow: 10px 10px 7px 2px rgba(0, 0, 0, 0.75); /*Så den poppar från sidan*/
+  cursor: pointer;
+}
+
+.links ol {
+  list-style-type: none;
+  margin: 10% auto 0; /* Så att länkarna placerar sig med emailen i mitten av kortet på mindre vidd px*/
+  padding: 0;
+  width: 50%;
+}
+.links a {
+  display: block;
+  margin: 15px;
+  padding: 5px;
+  text-decoration: none;
+  color: white;
+  background-color: #0f4d16;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2em;
+  border-radius: 25px;
+  transition: box-shadow 0.6s;
+  align-self: center;
+}
+.links a:hover {
+  box-shadow: 10px 10px 7px 2px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+}
+.mail {
+  /*Innehåller min mejladress placerad i mitten*/
+  text-align: center;
+  margin: 0 auto;
+  border: 3px solid #0f4d16;
+  width: 60%; /*Storlek av låden av viden på container*/
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  font-weight: bold;
+}
+.mail a {
+  color: black;
+}
+/*HÄR BÖRJAR FOOTERN*/
+footer {
+  position: absolute; /* Har en absolut position så den alltid är i bottom av skärmen*/
+  bottom: 0;
+  width: 100%;
+  display: flex; /*Flex så jag kan placera ut innehållet hur jag vill*/
+  flex-direction: column; /*Innehåller lägger sig i Kolumn*/
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  background: rgba(36, 40, 36, 1);
+  background: linear-gradient(315deg, rgba(36, 40, 36, 1), rgba(8, 130, 39, 1));
+}
+
+footer img {
+  /*Ikonerna som länkar tillwebbsidor*/
+  height: 50px;
+  margin-right: 1rem;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: transform 0.4s;
+}
+footer img:hover {
+  transform: scale(1.2);
+}
+
+/*HÄR BÖRJAR MEDIA QUERIES*/
+@media screen and (min-width: 700px) {
+  .rubrik h1 {
+    /*Utseednder för headern på startsidan förändras i flera steg för mer resposivitet*/
+    font-size: 7em;
+  }
+  /*Om mig*/
+  article p {
+    font-size: 1.4rem;
+  }
+  article {
+    grid-column: 3/5;
+  }
+  .pic-down {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  .pic-up {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  .mail {
+    font-size: 1.2em;
+  }
+} /*Media query för navbaren*/
+@media screen and (min-width: 770px) {
+  label #brgbtn,
+  label #cancel {
+    display: none;
+  }
+  nav {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+  ul {
+    all: unset;
+  }
+  nav ul li {
+    display: inline-block;
+    line-height: 5em;
+    margin: 0 2em;
+  }
+  nav ul li a {
+    font-size: 1.3em;
+  }
+}
+/*Media query för portfolion mellan visst intervall px vidd*/
+@media (min-width: 500px) and (max-width: 799px) {
+  .card-con {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /*Fyra rutor i stora skärmar*/
+  }
+  .card1 {
+    grid-column: 1/3;
+  }
+  .card2 {
+    grid-column: 3/5;
+  }
+  .card3 {
+    grid-column: 1/3;
+  }
+  .card4 {
+    grid-column: 3/5;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  /*3 under är för kontakta mig*/
+  .grid-left {
+    grid-column: 1/2;
+    border-right: 3px solid #0f4d16;
+  }
+  .grid-right {
+    grid-column: 2/3;
+  }
+  .links ol {
+    margin: 25% auto 0;
+  }
+  /*Här nedan följer utseende i större skärm med en funktion vid hoover där den hoovrade kommer i fokus och växer medans de andra korten tonar ut*/
+  .card-con {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    pointer-events: none; /*Ser till att inte aktivera effekten när musen är mellan korten*/
+  }
+  .card-con > * {
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    margin: 20px;
+    background: #faf1e4;
+    padding: 2rem 1rem;
+    pointer-events: auto; /*När korten berörs aktiveras effekten*/
+    transition: 300ms opacity, 300ms transform;
+  }
+  /*Hoovrat kort blir större och resetn bli borttonade*/
+  .card-con:hover > * {
+    opacity: 0.4;
+  }
+  .card-con:hover > *:hover {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  .card1 {
+    grid-column: 1/2;
+  }
+  .card2 {
+    grid-column: 2/3;
+  }
+  .card3 {
+    grid-column: 3/4;
+  }
+  .card4 {
+    grid-column: 4/5;
+  }
+  /*Tidslinjen*/
+  .timeline {
+    margin: 100px auto;
+  }
+  .timeline::after {
+    left: 50%;
+  }
+  .con-timeline {
+    padding: 10px 50px;
+    width: 50%;
+  }
+  .left-con-time {
+    left: -10%;
+  }
+  .right-con-time {
+    left: 50%;
+  }
+  .textbox-timeline small {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  .left-con-arrow {
+    border-left: 15px solid #0f4d16;
+    left: 100%;
+    border-right: none;
+  }
+  .right-con-arrow {
+    border-right: 15px solid #0f4d16;
+    left: -15px;
+  }
+  .textbox-timeline p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+  }
+  .card button {
+    left: 33%;
+  }
+}
+@media (min-width: 801px) and (max-width: 952px) {
+  .card button {
+    left: 15%;
+  } /*Justerar placering av knappen i korten*/
+}
+@media screen and (min-width: 953px) {
+  /*Utseednder för headern på startsidan förändras i flera steg för mer resposivitet*/
+  header .rubrik {
+    right: 15%;
+    top: 20%;
+  }
+  .rubrik h1 {
+    font-size: 6.5em;
+    top: 35%;
+  }
+  .rubrik h2 {
+    font-size: 4em;
+  }
+  .card button {
+    left: 20%;
+  }
+}
+@media screen and (min-width: 1075px) {
+  .card button {
+    left: 30%;
+  } /*Justerar placering av knappen i korten*/
+}

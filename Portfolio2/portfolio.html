@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Pacifico"
+    />
+    <script
+      src="https://kit.fontawesome.com/64df96d0cc.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="/bilder/favicon.ico" />
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <input type="checkbox" id="check" />
+        <label for="check">
+          <i class="fa-solid fa-burger" id="brgbtn"></i>
+          <i class="fa-solid fa-xmark" id="cancel"></i>
+        </label>
+        <h2 class="logo">ANNA</h2>
+        <ul>
+          <li><a href="index.html" class="bu">Hem</a></li>
+          <li><a href="om-mig.html">Om mig</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+      <!--Portfolion med olika projekt eller framtid-->
+      <div class="grid-card">
+        <div class="h-portfolio"><h2>Portfolio</h2></div>
+        <div class="card-con">
+          <div class="card card1">
+            <img src="/bilder/hjälm.jpg" alt="Projekt1" />
+            <p>Detta projekt här det hårdaste projektet jag skapat.</p>
+            <button type="button" onclick="alert ('Inget att se än!')">
+              <!--En ruta som poppar upp när man trycker på knapp-->
+              Mer information
+            </button>
+          </div>
+          <div class="card card2">
+            <img src="/bilder/pokal.jpg" alt="Projekt2" />
+            <p>Jag vann första pris för det här projektet mycket stolt!</p>
+            <button type="button" onclick="alert ('Här var det tomt!')">
+              Mer information
+            </button>
+          </div>
+          <div class="card card3">
+            <img src="/bilder/jag.jpg" alt="Projekt3" />
+            <p>Mitt livsprojekt som är mig själv och flykten från VGR!</p>
+            <button type="button" onclick="alert ('To be announced!')">
+              Mer information
+            </button>
+          </div>
+          <div class="card card4">
+            <img src="/bilder/kitty.jpg" alt="Projekt4" />
+            <p>Denna katt symobliserar ett projekt som är agil som en katt!</p>
+            <button type="button" onclick="alert ('Under konstruktion!')">
+              Mer information
+            </button>
+          </div>
+        </div>
+        <!--Här börjar tidslinjen-->
+        <div class="timeline-grid">
+          <div class="timeline">
+            <div class="con-timeline left-con-time">
+              <div class="textbox-timeline">
+                <h2 class="h-textbox">Biomedicinsk analytiker</h2>
+                <small>2018-Nu</small>
+                <p>
+                  Biomedicinsk analytiker vid Klinisk kemi på östra sjukhuset
+                  med 24/7 verksamhet. Arbetsuppgifterna innefattar,
+                  provhantering, allmän- och immunkemi, hematologi och
+                  koagulation med flera. Har haft extra ansvar för
+                  laboratorieinstrument, upplärning av ny anställda och arbetet
+                  har gjort mig mer stresstålig.
+                </p>
+                <span class="left-con-arrow"></span>
+              </div>
+            </div>
+            <div class="con-timeline right-con-time">
+              <div class="textbox-timeline con-timelin">
+                <h2 class="h-textbox">Göteborgs unversitet</h2>
+                <small>2015-2018</small>
+                <p>
+                  Biomedicinsk analytiker kandidatprogram utbildad inom kliniks
+                  kemi, patologi, transfusionsmedicin, mikrobiologi med mera.
+                </p>
+                <span class="right-con-arrow"></span>
+              </div>
+            </div>
+            <div class="con-timeline left-con-time">
+              <div class="textbox-timeline">
+                <h2 class="h-textbox">Blandade erfarenheter</h2>
+                <small>2011-2018</small>
+                <p>
+                  Jobberfarenheter inom resturang, trädgård vid Lisebergs
+                  växthus och lokalvårdare på Östra sjukhuset. <br />
+                  Studier innefattar Kinesiska, Italienska, Naturvetenskapligt
+                  Basår och ett år på molykylärbiologi programmet.
+                </p>
+                <span class="left-con-arrow"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <h2>Copyright Anna Alehed 2023 ©</h2>
+      <div class="foot-links">
+        <a
+          href="https://www.linkedin.com/in/anna-alehed-4a6bbb28a/"
+          target="_blank"
+          ><img src="/bilder/linkedin.png" alt="linkedin"
+        /></a>
+        <a href="https://github.com/Annamedie" target="_blank"
+          ><img src="/bilder/github.png" alt="Github"
+        /></a>
+      </div>
+    </footer>
+  </body>
+</html>
